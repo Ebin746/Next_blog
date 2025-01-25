@@ -12,7 +12,7 @@ const BlogItem = (
 }
 ) => {
   return (
-    <div className="max-w-[330px] sm:max-w-[300px] bg-white border border-black hover:shadow-[-7px_7px_1px_#000000]">
+    <div className="max-w-[270px] sm:max-w-[300px] bg-white border border-black hover:shadow-[-7px_7px_1px_#000000]">
       <Image
         src={image}
         width={400}
