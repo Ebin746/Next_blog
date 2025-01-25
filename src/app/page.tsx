@@ -1,8 +1,14 @@
-import React from 'react'
-
+import React from 'react';
+import Header from '@/components/Header';
+import BlogItem from "@/components/BlogItem";
+import BlogList from "@/components/BlogList";
 const page = () => {
   return (
-    <div className='bg-black text-red-950'>page</div>
+
+    <>
+    <Header/>
+<BlogList/>
+    </>
   )
 }
 
