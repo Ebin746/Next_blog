@@ -5,6 +5,7 @@ import React from 'react'
 import Image from 'next/image'
 
 const Header = () => {
+  console.log("Header rendered");
   return (
     <div className="py-5 px-5 lg:px-17 sm:p-15 w-full ">
     <div className="flex justify-between  ">

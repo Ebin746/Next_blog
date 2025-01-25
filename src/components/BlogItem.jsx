@@ -1,18 +1,20 @@
 import Image from "next/image";
 import React from "react";
 import { assets } from "../../public/assets/assets";
+import Link from "next/link";
 const BlogItem = (
   {
     title,
   description,
   image,
-
+  id,
   category,
 
 }
 ) => {
   return (
     <div className="max-w-[270px] sm:max-w-[300px] bg-white border border-black hover:shadow-[-7px_7px_1px_#000000]">
+      <Link href={`/blogs/${id}`}>
       <Image
         src={image}
         width={400}
@@ -34,6 +36,7 @@ const BlogItem = (
           read more <Image src={assets.arrow} alt="arrow" />
         </div>
       </div>
+      </Link>
     </div>
   );
 };
