@@ -18,6 +18,7 @@ const BlogItem = (
   category: string;
   }
 ) => {
+  console.log(`/${image}`)
   return (
     <div className="max-w-[270px] sm:max-w-[300px] bg-white border border-black hover:shadow-[-7px_7px_1px_#000000]">
       <Link href={`/blogs/${id}`}>
@@ -39,7 +40,7 @@ const BlogItem = (
             {description}
           </p>
           <div className="inline-flex items-center text-center py-2 font-semibold">
-            read more <Image src={assets.arrow} alt="arrow" />
+            read more <Image src={assets.arrow} width={20} height={10} alt="arrow" />
           </div>
         </div>
       </Link>
