@@ -1,6 +1,5 @@
-// src/models/Blog.ts
 import mongoose, { Schema, Document, Model } from "mongoose";
-import connectToDatabase from "../config/dB"
+import connectToDatabase from "../config/dB";
 
 // Define the Blog interface
 export interface IBlog extends Document {
@@ -9,6 +8,8 @@ export interface IBlog extends Document {
   author: string;
   category: string;
   date: Date;
+  image: string;
+  authorImg: string;
 }
 
 // Define the Blog schema
@@ -18,6 +19,8 @@ const BlogSchema: Schema<IBlog> = new Schema({
   author: { type: String, required: true },
   category: { type: String, required: true },
   date: { type: Date, default: Date.now },
+  image: { type: String, required: true },
+  authorImg: { type: String, required: false },
 });
 
 // Initialize the model after ensuring the database connection
@@ -26,6 +29,8 @@ const Blog: Model<IBlog> =
 
 // Export the model wrapped in the database connection logic
 export default async function getBlogModel() {
-  await connectToDatabase();
+  if (mongoose.connection.readyState !== 1) {
+    await connectToDatabase();
+  }
   return Blog;
 }
