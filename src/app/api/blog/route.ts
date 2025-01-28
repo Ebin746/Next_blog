@@ -4,13 +4,24 @@ import { NextResponse } from "next/server";
 
 
 
-export async function GET(Request) {
-    return NextResponse.json({ msg: "hello from page" });
+export async function GET(request:Request) {
+   try {
+    const Blog = await getBlogModel();
+    const blogs = await Blog.find()
+    return NextResponse.json({blogs},{status:200})
+   } catch (error) {
+    console.error("Error processing POST request:", error);
+        return NextResponse.json(
+            { error: "Failed to process the blog post" },
+            { status: 500 }
+        );
+
+   }
 }
 
-export async function POST(Request) {
+export async function POST(request:Request) {
     try {
-        const formData = await Request.formData();
+        const formData = await request.formData();
         const timeStamp = Date.now();
         const image = formData.get("image");
 
