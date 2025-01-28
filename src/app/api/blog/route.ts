@@ -3,23 +3,33 @@ import { writeFile } from "fs/promises";
 import { NextResponse } from "next/server";
 
 
+export async function GET(request: Request) {
+    try {
+        const url = new URL(request.url);
+        const blogId = url.searchParams.get("id");
+        console.log("blog Id",blogId)
+        const Blog = await getBlogModel();
 
-export async function GET(request:Request) {
-   try {
-    const Blog = await getBlogModel();
-    const blogs = await Blog.find()
-    return NextResponse.json({blogs},{status:200})
-   } catch (error) {
-    console.error("Error processing POST request:", error);
-        return NextResponse.json(
-            { error: "Failed to process the blog post" },
-            { status: 500 }
-        );
-
-   }
+        if (blogId) {
+            // Fetch a single blog by ID
+            const blog = await Blog.findById(blogId);
+         
+            if (!blog) {
+                return NextResponse.json({ status: 404, message: "Blog not found" });
+            }
+            return NextResponse.json({ status: 200, blog });
+        } else {
+            // Fetch all blogs
+            const blogs = await Blog.find();
+            return NextResponse.json({ status: 200, blogs });
+        }
+    } catch (error) {
+        console.error("Error processing GET request:", error);
+        return NextResponse.json({ status: 500, message: "Internal Server Error" });
+    }
 }
 
-export async function POST(request:Request) {
+export async function POST(request: Request) {
     try {
         const formData = await request.formData();
         const timeStamp = Date.now();
@@ -49,19 +59,21 @@ export async function POST(request:Request) {
         };
 
         if (!blogData.title || !blogData.description || !blogData.author) {
-            return NextResponse.json({ error: "Title, description, and author are required" },
-                { status: 400 })
+            return NextResponse.json(
+                { error: "Title, description, and author are required" },
+                { status: 400 }
+            );
         }
+
         const Blog = await getBlogModel();
         const res = await Blog.create(blogData);
-        console.log("blog added", res)
-        return NextResponse.json({ success: true, msg: "successfuly blog added" }, { status: 200 })
+        console.log("blog added", res);
+        return NextResponse.json({ success: true, msg: "Successfully added blog" }, { status: 200 });
     } catch (error) {
         console.error("Error processing POST request:", error);
         return NextResponse.json(
             { error: "Failed to process the blog post" },
             { status: 500 }
         );
-
     }
 }

@@ -11,7 +11,8 @@ interface BlogData {
   author: string
   description: string
   category: string
-  author_img: string
+  author_img: string,
+  
 }
 
 const Page = () => {
@@ -36,6 +37,7 @@ const Page = () => {
   // Handle image upload
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
+  
       setImage(e.target.files[0])
     }
   }
