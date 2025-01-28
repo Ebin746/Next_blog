@@ -2,12 +2,14 @@ import SideBar from "@/components/AdminComponents/SideBar";
 import React, { ReactNode } from "react";
 import { assets } from "../../../public/assets/assets";
 import Image from "next/image";
-
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 const layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="flex">
-        <SideBar />
+     <ToastContainer theme="dark"/>
+     <SideBar />
         <div className="flex flex-col w-full">
           {/* Header Section */}
           <div className="flex items-center justify-between w-full py-4 px-6 border-b border-gray-300">
