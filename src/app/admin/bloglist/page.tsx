@@ -10,13 +10,15 @@ interface BlogData {
   description: string
   category: string
   author_img: string
+  date:string
+  _id:string
 }
 const Page = () => {
   const [blog,setBlog]=useState<BlogData []|null>(null)
   const fetchData=async ()=>{
     try {
       const res=await axios.get("/api/blog");
-  setBlog(res.data.blogs)
+  setBlog(res.data.blogs);
     } catch (error) {
       toast.error("failed to fetch");
       console.log(error);
@@ -39,7 +41,7 @@ const Page = () => {
         </tr>
       </thead>
       <tbody>
-     {blog?.map((item,index)=><BlogTableItem key={index} title={item.title} authorImage={item.author_img} author={item.author}/>)}
+     {blog?.map((item,index)=><BlogTableItem id={item._id} key={index} date={item.date} title={item.title} authorImage={item.author_img} author={item.author}/>)}
       </tbody>
      </table>
     </div>}

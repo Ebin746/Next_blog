@@ -1,4 +1,6 @@
 import getBlogModel from "@/lib/models/BlogModel";
+import { unlink } from "fs";
+
 import { writeFile } from "fs/promises";
 import { NextResponse } from "next/server";
 
@@ -75,5 +77,27 @@ export async function POST(request: Request) {
             { error: "Failed to process the blog post" },
             { status: 500 }
         );
+    }
+}
+
+export async function DELETE(request:Request) {
+    try {
+        const url=new URL(request.url)
+        const blogId = url.searchParams.get("id");
+        const Blog=await getBlogModel();
+        const blog=await Blog.findById(blogId)
+        unlink(`../../public/${blog?.image}`, (err) => {
+            if (err) {
+                console.error("Failed to delete image:", err);
+                return NextResponse.json({ error: "Failed to delete image" }, { status: 500 });
+            }
+        });
+        await Blog.findByIdAndDelete(blogId)
+        return NextResponse.json({ msg:"successfully deleted" }, { status: 201 });
+
+
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json({error:"internal error"},{status:500})
     }
 }
