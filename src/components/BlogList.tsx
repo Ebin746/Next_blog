@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import {blog_data } from "../../public/assets/assets"
+
 import Blogitem from "./BlogItem"
 import axios from 'axios'
 // Define the type for the `data` state

@@ -11,6 +11,7 @@ interface BlogData {
   description: string
   category: string
   author_img: string
+  image: string
 }
 
 
@@ -94,7 +95,7 @@ const Page = ({ params }: { params: { id: string } }) => {
         </div>
       </div>
       <div className="mx-5 max-w-[800px] md:mx-auto mt-[-100px] mb-10 border-4 border-white">
-        <Image src={data.image} width={1280} height={720} alt="blog image" />
+        <Image src={data?.image} width={1280} height={720} alt="blog image" />
         <h1 className="mx-8 text-[26px] font-semibold mt-6">Introduction:</h1>
         <p className="mx-8 my-4">{data.description}</p>
 
