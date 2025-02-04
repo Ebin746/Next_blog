@@ -16,12 +16,7 @@ const Header = () => {
     <div className="text-center my-8  py-2">
       <h1 className='font-bold lg:text-3xl sm:text-2xl'>Latest blog</h1>
       <p className='my-2 max-w-[750px] sm:text-base text-xs m-auto ' >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam sit laudantium debitis quasi molestiae assumenda aliquam quos, aliquid dicta ut doloribus recusandae minima quis ducimus soluta in officiis architecto amet?</p>
-      <form action="" className='flex justify-between max-w-[500px] scale-75 sm:scale-100 mx-auto border border-black shadow-[-7px_7px_0px_#2b2828]'>
-        <input  type="email" placeholder='@gmail.com' className=' sm:mx-3 border-solide outline-none ' />
-        <button type='submit'  className='hover:bg-black hover:text-white sm:px-5 py-3  border-r-2'>Subscribe</button>
-
-        
-      </form>
+  
     </div>
  </div>
   )

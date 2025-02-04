@@ -13,7 +13,7 @@ interface BlogData {
   author_img: string
   image: string
 }
-
+//add emaila and feedback here
 
 const Page = ({ params }: { params: { id: string } }) => {
   const [data, setData] = useState<BlogData|null>(null);
@@ -77,7 +77,9 @@ const Page = ({ params }: { params: { id: string } }) => {
           <button className="h-7 flex bg-black text-slate-50 items-center py-5 px-6 gap-2 border border-solid border-black sm:shadow-[-7px_7px_0px_#2b2929]">
             Get Started
           </button>
+          
         </div>
+        
         <div className="text-center my-24">
           <h1 className="font-semibold text-3xl sm:text-5xl mx-auto max-w-[720px]">
             {data.title}
