@@ -2,6 +2,7 @@ import { verifyToken } from "../utils/auth";
 import { NextResponse } from "next/server";
  export default function authMiddleware(req:Request){
 try {
+    console.log(2)
     const authHeader=req.headers.get("Authorization");
     if(!authHeader || !authHeader.startsWith('Bearer ')){
         return NextResponse.json({ msg: "Unauthorized" }, { status: 401 });
