@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 
 import BlogList from "@/components/BlogList";
 
-const page = () => {
+const Page = () => {
   return (
 
     <>
@@ -14,4 +14,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
