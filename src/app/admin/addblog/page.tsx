@@ -1,78 +1,78 @@
-"use client"
-import Image from 'next/image'
-import { useState } from 'react'
-import { assets } from '../../../../public/assets/assets'
-import axios from 'axios'
-import { toast } from 'react-toastify'
+"use client";
+import Image from 'next/image';
+import { useState } from 'react';
+import { assets } from '../../../../public/assets/assets';
+import axiosInstance from '@/lib/config/axiosInstance'; // Adjust the import path as needed
+import { toast } from 'react-toastify';
 
 // Define the type for the `data` state
 interface BlogData {
-  title: string
-  author: string
-  description: string
-  category: string
-  author_img: string,
-  
+  title: string;
+  author: string;
+  description: string;
+  category: string;
+  author_img: string;
 }
 
 const Page = () => {
-  const [image, setImage] = useState<File | null>(null)
+  const [image, setImage] = useState<File | null>(null);
   const [data, setData] = useState<BlogData>({
     title: "",
     author: "steve",
     description: "",
     category: "Startup", // Default category
     author_img: "/assets/profile_icon.png"
-  })
+  });
 
   // Handle input and textarea changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setData((prevData) => ({
       ...prevData,
       [name]: value
-    }))
-  }
+    }));
+  };
 
   // Handle image upload
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-  
-      setImage(e.target.files[0])
+      setImage(e.target.files[0]);
     }
-  }
+  };
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log("Form Data:",typeof data)
-    const formData=new FormData();
-    formData.append("title",data.title);
-    formData.append("description",data.description);
-    formData.append("category",data.category);
-    formData.append("author",data.author)
-    formData.append("author_img",data.author_img)
-    if(image){
-      formData.append("image",image);
+    e.preventDefault();
+    console.log("Form Data:", typeof data);
+    
+    const formData = new FormData();
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("category", data.category);
+    formData.append("author", data.author);
+    formData.append("author_img", data.author_img);
+    if (image) {
+      formData.append("image", image);
     }
 
     try {
-      const res=await axios.post("/api/blog",formData)
-    if(res.data.success){
-     toast.success(res.data.msg)
-    }
-    setData({ title: "",
-      author: "steve",
-      description: "",
-      category: "Startup", // Default category
-      author_img: "/assets/profile_icon.png"})
-
+      const res = await axiosInstance.post("/admin", formData);
+      if (res.data.success) {
+        toast.success(res.data.msg);
+      }
+      console.log(res)// Reset the form data after a successful submission
+      setData({
+        title: "",
+        author: "steve",
+        description: "",
+        category: "Startup",
+        author_img: "/assets/profile_icon.png"
+      });
     } catch (error) {
-      toast.error("failed to add")
-      console.log(error);
+      toast.error("Failed to add blog post.");
+      console.error(error);
     }
-
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className='pt-5 px-5 sm:pt-12 sm:pl-16 max-w-4xl mx-auto'>
@@ -149,7 +149,7 @@ const Page = () => {
         Add Blog
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

@@ -16,5 +16,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"], // Apply middleware only to routes under `/user`
+  matcher: ["/api/admin/:path*"], // Apply middleware only to routes under `/user`
 };
