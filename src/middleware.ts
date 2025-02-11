@@ -6,7 +6,7 @@ export function middleware(req: NextRequest) {
 
   const response = authMiddleware(req);
   
-  if (response) {
+  if (response===false) {
     console.log("Unauthorized response sent from middleware");
     return response;
   }

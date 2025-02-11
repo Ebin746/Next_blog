@@ -56,7 +56,7 @@ const Page = () => {
     }
 
     try {
-      const res = await axiosInstance.post("/admin", formData);
+      const res = await axiosInstance.post("/api/admin", formData);
       if (res.data.success) {
         toast.success(res.data.msg);
       }

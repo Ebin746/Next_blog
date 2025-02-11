@@ -3,7 +3,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   // Set your base URL here (e.g., your API endpoint)
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000",
   // You can set default headers here
   headers: {
     "Content-Type": "multipart/form-data", // For formData posts; adjust if necessary
