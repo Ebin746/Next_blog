@@ -1,5 +1,4 @@
 ```markdown
-
 # 📝 BlogPost - A Modern Blog Management System
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://www.example.com/version)
 [![License](https://img.shields.io/badge/license-Unlicensed-red.svg)](https://www.example.com/license)
@@ -10,10 +9,10 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 ## Features
 
 🔧 **Core Features**
-- ✅ Create, read, update, and delete (CRUD) blog posts.
+- ✅ Create, read, update, and delete (CRUD) blog posts via an admin panel.
 - ✅ User authentication and authorization using JWT.
-- ✅ Admin panel for managing blog content and subscriptions.
-- ✅ Dynamic blog post display with categories and author information.
+- ✅ Dynamic blog post display with categories.
+- ✅ User registration and login.
 - ✅ Feedback collection via email integration.
 
 🚀 **Deployment**
@@ -22,8 +21,7 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 
 🔒 **Security**
 - 🛡️ Password hashing using bcryptjs.
-- 🔑 JWT for secure authentication.
-- ⛔ Protected API routes for admin functionalities.
+- 🔑 JWT for secure authentication on admin routes.
 
 ## Tech Stack
 
@@ -34,6 +32,7 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 | Database       | [MongoDB][mongodb-url], [Mongoose][mongoose-url] |
 | DevOps         | [Docker][docker-url], [GitHub Actions][github-actions-url] |
 | Styling        | [Tailwind CSS][tailwindcss-url] |
+| Authentication | [jsonwebtoken][jsonwebtoken-url], [bcryptjs][bcryptjs-url]|
 
 ## Quick Start
 
@@ -49,6 +48,7 @@ npm install
 # or
 yarn install
 ```
+
 ### Environment
 Create a `.env.local` file in the root directory with the following variables:
 ```env
@@ -75,7 +75,7 @@ yarn lint
 ```
 
 ### Testing
-The project currently lacks dedicated testing frameworks. However, a future implementation of Jest tests is planned for unit, integration, and end-to-end (E2E) testing. Manual testing is recommended at this stage.
+The project currently lacks dedicated testing frameworks. However, manual testing is recommended at this stage.
 
 ## API Reference
 
@@ -138,5 +138,6 @@ Contributions are welcome! Please adhere to the following guidelines:
 [docker-url]: https://www.docker.com/
 [github-actions-url]: https://github.com/features/actions
 [tailwindcss-url]: https://tailwindcss.com/
-```
+[jsonwebtoken-url]: https://www.npmjs.com/package/jsonwebtoken
+[bcryptjs-url]: https://www.npmjs.com/package/bcryptjs
 ```
