@@ -68,7 +68,7 @@ Testing
 The project currently lacks dedicated testing frameworks. However, a future implementation of Jest tests is planned for unit, integration, and end-to-end (E2E) testing. Manual testing is recommended at this stage.
 
 API Reference
-| Method | Endpoint | Body | Response | |--------|---------------------|-----------------------------------------------------------------|----------------------------------| | POST | /api/auth/register | { email: "user@example.com", password: "password123" } | 201 Created | | POST | /api/auth/login | { email: "user@example.com", password: "password123" } | 200 OK (with token) | | POST | /api/admin | FormData (title, description, image, etc.) | 200 OK | | GET | /api/blog | None | 200 OK (array of blogs) | | GET | /api/blog?id={id} | None | 200 OK (single blog) | | DELETE | /api/admin?id={id} | None | 201 OK | | POST | /api/email | { email: "email@example.com", feedback: "your feedback" } | 200 OK | | GET | /api/email | None | 200 OK (array of emails feedback) |
+| Method | Endpoint | Body | Response | |--------|----------------------|-------------------------------------------------------------------------------------|----------------------------------------| | POST | /api/auth/register | { email: "user@example.com", password: "password123" } | 201 Created | | POST | /api/auth/login | { email: "user@example.com", password: "password123" } | 200 OK (with token) | | POST | /api/admin | FormData (title, description, image, etc.) | 200 OK | | GET | /api/blog | None | 200 OK (array of blogs) | | GET | /api/blog?id={id} | None | 200 OK (single blog) | | DELETE | /api/admin?id={id}| None | 201 OK | | POST | /api/email | { email: "email@example.com", feedback: "your feedback" } | 200 OK | | GET | /api/email | None | 200 OK (array of emails feedback) |
 
 [!NOTE] The /api/admin endpoints require a valid JWT in the Authorization header.
 
@@ -92,12 +92,10 @@ docker run -p 3000:3000 blogpost
 Platform Guides
 Vercel: Deploy directly from your Git repository using the Vercel CLI or dashboard. Set the required environment variables in the Vercel dashboard.
 Heroku: Create a Heroku app and deploy using the Heroku Git workflow. Set the required environment variables in the Heroku dashboard.
-AWS: Use AWS Elastic Beanstalk or ECS to deploy the application. Configure a load balancer and set the environment variables.
-The project includes a .github/workflows directory, implying CI/CD using GitHub Actions could be configured. Currently, no workflow files are present.
-
+AWS: Use AWS Elastic Beanstalk or ECS to deploy the application. Configure a load balancer and set the environment variables. The project includes a .github/workflows directory, implying CI/CD using GitHub Actions could be configured. Currently, no workflow files are present.
 Contributing
 Contributions are welcome! Please adhere to the following guidelines:
 
 Branch Naming: feat/new-feature, bugfix/issue-123, chore/update-dependencies
 Commit Messages: Use imperative mood (e.g., "Add new feature" instead of "Added new feature").
-Pull Requests: Fill out the provided PR template with a clear description of the changes and justification
+Pull Requests: Fill out the provided PR template with a clear description of the changes and justification.
