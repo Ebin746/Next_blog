@@ -6,6 +6,7 @@
 A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 
 ## Features
+
 🔧 **Core Features**
 - ✅ Create, read, update, and delete (CRUD) blog posts.
 - ✅ User authentication and authorization using JWT.
@@ -26,10 +27,10 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 
 | Category       | Technologies                          |
 |----------------|---------------------------------------|
-| Frontend       | [React][react-url], [Next.js][nextjs-url]                        |
-| Backend        | [Node.js][nodejs-url], [Express][express-url] (via Next.js API routes)                      |
-| Database       | [MongoDB][mongodb-url], [Mongoose][mongoose-url]                     |
-| DevOps         | [Docker][docker-url], [GitHub Actions][github-actions-url]                |
+| Frontend       | [React][react-url], [Next.js][nextjs-url] |
+| Backend        | [Node.js][nodejs-url], [Express][express-url] (via Next.js API routes) |
+| Database       | [MongoDB][mongodb-url], [Mongoose][mongoose-url] |
+| DevOps         | [Docker][docker-url], [GitHub Actions][github-actions-url] |
 | Styling        | [Tailwind CSS][tailwindcss-url] |
 
 ## Quick Start
@@ -52,8 +53,8 @@ Create a .env.local file in the root directory with the following variables:
 PORT=3000
 DATABASE_URL=mongodb://localhost:27017/blog
 JWT_SECRET=your_jwt_secret_key
-NEXT_PUBLIC_API_URL=http://localhost:3000 # or your deployed URL
-[!NOTE] Ensure the DATABASE_URL points to a running MongoDB instance. JWT_SECRET should be a strong, randomly generated string.
+NEXT_PUBLIC_API_URL=http://localhost:3000
+[!NOTE] Ensure the DATABASE_URL points to a running MongoDB instance. JWT_SECRET should be a strong, randomly generated string. NEXT_PUBLIC_API_URL should be set to the deployed URL in production environments.
 
 Development
 Commands
@@ -68,7 +69,7 @@ Testing
 The project currently lacks dedicated testing frameworks. However, a future implementation of Jest tests is planned for unit, integration, and end-to-end (E2E) testing. Manual testing is recommended at this stage.
 
 API Reference
-| Method | Endpoint | Body | Response | |--------|----------------------|---------------------------------------|------------------------------| | POST | /api/auth/register | { email: "user@example.com", password: "password123" } | 201 Created | | POST | /api/auth/login | { email: "user@example.com", password: "password123" } | 200 OK (with token) | | POST | /api/admin | FormData (title, description, image, etc.) | 200 OK | | GET | /api/blog | None | 200 OK (array of blogs) | | GET | /api/blog?id={id} | None | 200 OK (single blog) | | DELETE | /api/admin?id={id} | None | 201 OK | | POST | /api/email | { email: "email@example.com", feedback: "your feedback" } | 200 OK | | GET | /api/email | None | 200 OK (array of emails with feedback) |
+| Method | Endpoint | Body | Response | |--------|--------------------|--------------------------------------------------------|--------------------------------------------------------------| | POST | /api/auth/register | { email: "user@example.com", password: "password123" } | 201 Created | | POST | /api/auth/login | { email: "user@example.com", password: "password123" } | 200 OK (with token) | | POST | /api/admin | FormData (title, description, image, etc.) | 200 OK | | GET | /api/blog | None | 200 OK (array of blogs) | | GET | /api/blog?id={id} | None | 200 OK (single blog) | | DELETE | /api/admin?id={id} | None | 201 OK | | POST | /api/email | { email: "email@example.com", feedback: "your feedback" } | 200 OK | | GET | /api/email | None | 200 OK (array of emails with feedback) |
 
 [!NOTE] The /api/admin endpoints require a valid JWT in the Authorization header.
 
@@ -90,10 +91,10 @@ Build and run the Docker image:
 docker build -t blogpost .
 docker run -p 3000:3000 blogpost
 Platform Guides
-Vercel: Deploy directly from your Git repository using the Vercel CLI or dashboard.
+Vercel: Deploy directly from your Git repository using the Vercel CLI or dashboard. Set the required environment variables in the Vercel dashboard.
 Heroku: Create a Heroku app and deploy using the Heroku Git workflow. Set the required environment variables in the Heroku dashboard.
 AWS: Use AWS Elastic Beanstalk or ECS to deploy the application. Configure a load balancer and set the environment variables.
-The project includes a .github/workflows directory, implying CI/CD using GitHub Actions could be configured, but no files are currently present.
+The project includes a .github/workflows directory, implying CI/CD using GitHub Actions could be configured. Currently, no workflow files are present.
 
 Contributing
 Contributions are welcome! Please adhere to the following guidelines:
