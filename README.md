@@ -39,7 +39,7 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 ### Prerequisites
 - [Node.js][nodejs-url] ^18.0.0
 - [MongoDB][mongodb-url] 6.0+
-```markdown
+
 ### Installation
 ```bash
 git clone [repo-url]
