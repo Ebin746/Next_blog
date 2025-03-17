@@ -41,7 +41,7 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 
 ### Installation
 
-
+```bash
 git clone [repo-url]
 cd blog
 npm install
@@ -55,7 +55,7 @@ DATABASE_URL=mongodb://localhost:27017/blog
 JWT_SECRET=your_jwt_secret_key
 NEXT_PUBLIC_API_URL=http://localhost:3000
 [!NOTE] Ensure the DATABASE_URL points to a running MongoDB instance. JWT_SECRET should be a strong, randomly generated string. NEXT_PUBLIC_API_URL should be set to the deployed URL in production environments.
-
+```bash
 Development
 Commands
 npm run dev    # Start development server
