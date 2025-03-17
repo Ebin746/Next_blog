@@ -1,5 +1,5 @@
-
 ```markdown
+
 # 📝 BlogPost - A Modern Blog Management System
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://www.example.com/version)
 [![License](https://img.shields.io/badge/license-Unlicensed-red.svg)](https://www.example.com/license)
