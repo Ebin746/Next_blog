@@ -1,3 +1,5 @@
+```markdown
+```markdown
 # 📝 BlogPost - A Modern Blog Management System
 [![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://www.example.com/version)
 [![License](https://img.shields.io/badge/license-Unlicensed-red.svg)](https://www.example.com/license)
@@ -46,17 +48,23 @@ cd blog
 npm install
 # or
 yarn install
-Environment
-Create a .env.local file in the root directory with the following variables:
-
+```
+### Environment
+Create a `.env.local` file in the root directory with the following variables:
+```env
 PORT=3000
 DATABASE_URL=mongodb://localhost:27017/blog
 JWT_SECRET=your_jwt_secret_key
 NEXT_PUBLIC_API_URL=http://localhost:3000
-[!NOTE] Ensure the DATABASE_URL points to a running MongoDB instance. JWT_SECRET should be a strong, randomly generated string. NEXT_PUBLIC_API_URL should be set to the deployed URL in production environments.
+```
 
-Development
-Commands
+> [!NOTE]
+> Ensure the `DATABASE_URL` points to a running MongoDB instance. `JWT_SECRET` should be a strong, randomly generated string. `NEXT_PUBLIC_API_URL` should be set to the deployed URL in production environments.
+
+## Development
+
+### Commands
+```bash
 npm run dev    # Start development server
 npm run build  # Create production build
 npm run lint   # Run ESLint for code analysis
@@ -64,18 +72,33 @@ npm run lint   # Run ESLint for code analysis
 yarn dev
 yarn build
 yarn lint
-Testing
+```
+
+### Testing
 The project currently lacks dedicated testing frameworks. However, a future implementation of Jest tests is planned for unit, integration, and end-to-end (E2E) testing. Manual testing is recommended at this stage.
 
-API Reference
-| Method | Endpoint | Body | Response | |--------|----------------------|-------------------------------------------------------------------------------------|----------------------------------------| | POST | /api/auth/register | { email: "user@example.com", password: "password123" } | 201 Created | | POST | /api/auth/login | { email: "user@example.com", password: "password123" } | 200 OK (with token) | | POST | /api/admin | FormData (title, description, image, etc.) | 200 OK | | GET | /api/blog | None | 200 OK (array of blogs) | | GET | /api/blog?id={id} | None | 200 OK (single blog) | | DELETE | /api/admin?id={id}| None | 201 OK | | POST | /api/email | { email: "email@example.com", feedback: "your feedback" } | 200 OK | | GET | /api/email | None | 200 OK (array of emails feedback) |
+## API Reference
 
-[!NOTE] The /api/admin endpoints require a valid JWT in the Authorization header.
+| Method | Endpoint             | Body                                                                            | Response              |
+|--------|----------------------|---------------------------------------------------------------------------------|-----------------------|
+| POST   | `/api/auth/register` | `{ email: "user@example.com", password: "password123" }`                      | `201 Created`         |
+| POST   | `/api/auth/login`    | `{ email: "user@example.com", password: "password123" }`                      | `200 OK` (with token) |
+| POST   | `/api/admin`         | `FormData` (title, description, image, etc.)                                | `200 OK`              |
+| GET    | `/api/blog`          | None                                                                            | `200 OK` (array of blogs) |
+| GET    | `/api/blog?id={id}` | None                                                                            | `200 OK` (single blog) |
+| DELETE | `/api/admin?id={id}`| None                                                                            | `201 OK`              |
+| POST   | `/api/email`         | `{ email: "email@example.com", feedback: "your feedback" }`                   | `200 OK`              |
+| GET    | `/api/email`         | None                                                                            | `200 OK` (array of emails feedback) |
 
-Deployment
-Containerization
-Create a Dockerfile in the project root:
+> [!NOTE]
+> The `/api/admin` endpoints require a valid JWT in the `Authorization` header.
 
+## Deployment
+
+### Containerization
+Create a `Dockerfile` in the project root:
+
+```dockerfile
 FROM node:18-alpine
 WORKDIR /app
 COPY . .
@@ -85,17 +108,35 @@ RUN npm install
 CMD ["npm", "start"]
 # or
 # CMD ["yarn", "start"]
+```
 Build and run the Docker image:
 
+```bash
 docker build -t blogpost .
 docker run -p 3000:3000 blogpost
-Platform Guides
-Vercel: Deploy directly from your Git repository using the Vercel CLI or dashboard. Set the required environment variables in the Vercel dashboard.
-Heroku: Create a Heroku app and deploy using the Heroku Git workflow. Set the required environment variables in the Heroku dashboard.
-AWS: Use AWS Elastic Beanstalk or ECS to deploy the application. Configure a load balancer and set the environment variables. The project includes a .github/workflows directory, implying CI/CD using GitHub Actions could be configured. Currently, no workflow files are present.
-Contributing
+```
+
+### Platform Guides
+- **Vercel**: Deploy directly from your Git repository using the Vercel CLI or dashboard. Set the required environment variables in the Vercel dashboard.
+- **Heroku**: Create a Heroku app and deploy using the Heroku Git workflow. Set the required environment variables in the Heroku dashboard.
+- **AWS**: Use AWS Elastic Beanstalk or ECS to deploy the application. Configure a load balancer and set the environment variables. The project includes a `.github/workflows` directory, implying CI/CD using GitHub Actions could be configured. Currently, no workflow files are present.
+
+## Contributing
+
 Contributions are welcome! Please adhere to the following guidelines:
 
-Branch Naming: feat/new-feature, bugfix/issue-123, chore/update-dependencies
-Commit Messages: Use imperative mood (e.g., "Add new feature" instead of "Added new feature").
-Pull Requests: Fill out the provided PR template with a clear description of the changes and justification.
+- **Branch Naming**: `feat/new-feature`, `bugfix/issue-123`, `chore/update-dependencies`
+- **Commit Messages**: Use imperative mood (e.g., "Add new feature" instead of "Added new feature").
+- **Pull Requests**: Fill out the provided PR template with a clear description of the changes and justification.
+
+[react-url]: https://react.dev/
+[nextjs-url]: https://nextjs.org/
+[nodejs-url]: https://nodejs.org/
+[express-url]: https://expressjs.com/
+[mongodb-url]: https://www.mongodb.com/
+[mongoose-url]: https://mongoosejs.com/
+[docker-url]: https://www.docker.com/
+[github-actions-url]: https://github.com/features/actions
+[tailwindcss-url]: https://tailwindcss.com/
+```
+```
