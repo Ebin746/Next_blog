@@ -41,7 +41,7 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 
 ### Installation
 
-```bash
+
 git clone [repo-url]
 cd blog
 npm install
