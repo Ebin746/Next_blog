@@ -40,7 +40,6 @@ A full-stack blog application built with Next.js, Tailwind CSS, and MongoDB.
 - [MongoDB][mongodb-url] 6.0+
 
 ### Installation
-
 ```bash
 git clone [repo-url]
 cd blog
@@ -55,7 +54,7 @@ DATABASE_URL=mongodb://localhost:27017/blog
 JWT_SECRET=your_jwt_secret_key
 NEXT_PUBLIC_API_URL=http://localhost:3000
 [!NOTE] Ensure the DATABASE_URL points to a running MongoDB instance. JWT_SECRET should be a strong, randomly generated string. NEXT_PUBLIC_API_URL should be set to the deployed URL in production environments.
-```bash
+
 Development
 Commands
 npm run dev    # Start development server
@@ -69,7 +68,7 @@ Testing
 The project currently lacks dedicated testing frameworks. However, a future implementation of Jest tests is planned for unit, integration, and end-to-end (E2E) testing. Manual testing is recommended at this stage.
 
 API Reference
-| Method | Endpoint | Body | Response | |--------|--------------------|--------------------------------------------------------|--------------------------------------------------------------| | POST | /api/auth/register | { email: "user@example.com", password: "password123" } | 201 Created | | POST | /api/auth/login | { email: "user@example.com", password: "password123" } | 200 OK (with token) | | POST | /api/admin | FormData (title, description, image, etc.) | 200 OK | | GET | /api/blog | None | 200 OK (array of blogs) | | GET | /api/blog?id={id} | None | 200 OK (single blog) | | DELETE | /api/admin?id={id} | None | 201 OK | | POST | /api/email | { email: "email@example.com", feedback: "your feedback" } | 200 OK | | GET | /api/email | None | 200 OK (array of emails with feedback) |
+| Method | Endpoint | Body | Response | |--------|---------------------|-----------------------------------------------------------------|----------------------------------| | POST | /api/auth/register | { email: "user@example.com", password: "password123" } | 201 Created | | POST | /api/auth/login | { email: "user@example.com", password: "password123" } | 200 OK (with token) | | POST | /api/admin | FormData (title, description, image, etc.) | 200 OK | | GET | /api/blog | None | 200 OK (array of blogs) | | GET | /api/blog?id={id} | None | 200 OK (single blog) | | DELETE | /api/admin?id={id} | None | 201 OK | | POST | /api/email | { email: "email@example.com", feedback: "your feedback" } | 200 OK | | GET | /api/email | None | 200 OK (array of emails feedback) |
 
 [!NOTE] The /api/admin endpoints require a valid JWT in the Authorization header.
 
@@ -101,4 +100,4 @@ Contributions are welcome! Please adhere to the following guidelines:
 
 Branch Naming: feat/new-feature, bugfix/issue-123, chore/update-dependencies
 Commit Messages: Use imperative mood (e.g., "Add new feature" instead of "Added new feature").
-Pull Requests: Fill out the provided PR template with a clear description of the changes and justification.
+Pull Requests: Fill out the provided PR template with a clear description of the changes and justification
